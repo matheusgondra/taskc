@@ -11,5 +11,7 @@ typedef enum {
 typedef struct {
     uint64_t id;
     char *description;
-
+    TaskStatus status;
+    uint64_t created_at;
+    uint64_t updated_at;
 } Task;

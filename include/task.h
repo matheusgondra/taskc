@@ -15,3 +15,6 @@ typedef struct {
     uint64_t created_at;
     uint64_t updated_at;
 } Task;
+
+Task task_create(uint64_t id, const char *description);
+void task_destroy(Task *task);

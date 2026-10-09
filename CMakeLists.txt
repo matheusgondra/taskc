@@ -33,8 +33,9 @@ if(BUILD_TESTING)
         add_test(NAME ${target_name} COMMAND ${target_name})
     endfunction()
 
-target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+endif()
 
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 find_program(CLANG_FORMAT clang-format)
 if(CLANG_FORMAT)

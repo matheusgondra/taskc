@@ -3,17 +3,15 @@
 #include <string.h>
 #include <time.h>
 
-Task task_create(uint64_t id, const char *description) {    
+Task task_create(uint64_t id, const char *description) {
     struct timespec ts;
     timespec_get(&ts, TIME_UTC);
 
-    Task task = {
-        .id = id,
-        .description = strdup(description),
-        .status = STATUS_TODO,
-        .created_at = (uint64_t) ts.tv_sec,
-        .updated_at = (uint64_t) ts.tv_sec
-    };
+    Task task = {.id = id,
+                 .description = strdup(description),
+                 .status = STATUS_TODO,
+                 .created_at = (uint64_t) ts.tv_sec,
+                 .updated_at = (uint64_t) ts.tv_sec};
 
     return task;
 }

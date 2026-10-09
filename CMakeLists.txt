@@ -33,4 +33,20 @@ if(BUILD_TESTING)
         add_test(NAME ${target_name} COMMAND ${target_name})
     endfunction()
 
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+
+
+find_program(CLANG_FORMAT clang-format)
+if(CLANG_FORMAT)
+    file(GLOB_RECURSE FORMAT_FILES
+        "src/*.c"
+        "include/*.h"
+        "tests/*.c"
+    )
+
+    add_custom_target(format
+        COMMAND ${CLANG_FORMAT} -i ${FORMAT_FILES}
+        WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+        COMMENT "Formatando codigo com clang-format..."
+    )
 endif()

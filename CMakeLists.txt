@@ -33,6 +33,7 @@ if(BUILD_TESTING)
         add_test(NAME ${target_name} COMMAND ${target_name})
     endfunction()
 
+    add_unity_test(task_test tests/test_task.c)
 endif()
 
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)

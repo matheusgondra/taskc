@@ -34,6 +34,7 @@ if(BUILD_TESTING)
     endfunction()
 
     add_unity_test(task_test tests/test_task.c)
+    add_unity_test(utils_test tests/test_utils.c)
 endif()
 
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)

@@ -30,11 +30,22 @@ void test_task_create_should_duplicate_description_string() {
     task_destroy(&sut);
 }
 
+void test_task_destroy_should_free_description_and_nullify_pointer() {
+    Task sut = task_create(1, "any description");
+
+    TEST_ASSERT_NOT_NULL(sut.description);
+
+    task_destroy(&sut);
+
+    TEST_ASSERT_NULL(sut.description);
+}
+
 int main() {
     UNITY_BEGIN();
 
     RUN_TEST(test_task_create_should_initialize_fields_correctly);
     RUN_TEST(test_task_create_should_duplicate_description_string);
+    RUN_TEST(test_task_destroy_should_free_description_and_nullify_pointer);
 
     return UNITY_END();
 }
